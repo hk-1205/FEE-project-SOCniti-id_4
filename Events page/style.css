@@ -1,0 +1,805 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+body{
+  background-color: #eee;
+}
+#page1 {
+  background-image: linear-gradient(to right, #032B44, #000000);
+}
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+.banner .slider {
+  position: absolute;
+  width: 200px;
+  height: 250px;
+  top: 10%;
+  left: calc(50% - 100px);
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  animation: autoRun 20s linear infinite;
+  z-index: 2;
+}
+@keyframes autoRun {
+  from {
+    transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+  }
+  to {
+    transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+  }
+}
+
+.banner .slider .item {
+  position: absolute;
+  inset: 0 0 0 0;
+  transform: rotateY(
+      calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+    )
+    translateZ(550px);
+}
+.banner .slider .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 1023px) {
+  .banner .slider {
+    width: 160px;
+    height: 200px;
+    left: calc(50% - 80px);
+  }
+  .banner .slider .item {
+    transform: rotateY(
+        calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+      )
+      translateZ(300px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .banner .slider {
+    width: 100px;
+    height: 150px;
+    left: calc(50% - 50px);
+  }
+  .banner .slider .item {
+    transform: rotateY(
+        calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+      )
+      translateZ(180px);
+  }
+}
+
+.event-title {
+  background: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-shadow: 0 0 10px;
+  transform: translate(-50%, -50%);
+  font-size: 100px;
+  font-weight: bold;
+  color: #fff;
+  z-index: 1;
+  animation: fadeIn 2s ease-in-out, pulse 3s infinite, rotate 5s forwards,
+    shadow 4s infinite, upDownBounce 2s ease-in-out 2s,
+    sideToSideBounce 2s ease-in-out 4s, bounce 2s ease-in-out 6s,
+    spin 3s ease-in-out 8s, flip 2s ease-in-out 11s, zoom 2s ease-in-out 13s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Define the pulse animation */
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Define the shadow animation */
+@keyframes shadow {
+  0% {
+    text-shadow: 0 0 15px #fff;
+  }
+  50% {
+    text-shadow: 0 0 30px #fff;
+  }
+  100% {
+    text-shadow: 0 0 15px #fff;
+  }
+}
+@keyframes upDownBounce {
+  0% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-20px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+}
+@keyframes sideToSideBounce {
+  0% {
+    transform: translate(-50%, -50%) translateX(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateX(-20px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateX(0);
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(720deg);
+  }
+}
+
+/* Define the flip animation */
+@keyframes flip {
+  0% {
+    transform: translate(-50%, -50%) rotateY(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotateY(180deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateY(0deg);
+  }
+}
+
+@keyframes zoom {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@media screen and (max-width: 1023px) {
+  .event-title {
+    font-size: 80px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .event-title {
+    font-size: 60px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .event-title {
+    font-size: 40px;
+  }
+}
+
+
+
+#page2 {
+  min-height: 100vh;
+  width: 100%;
+  font-size: 16px;
+  background: #eee;
+  color: #777;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.item-container {
+  position: relative;
+  margin: 24px;
+  width: 320px;
+  height: 570px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.img-container,
+.body-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.img-container img {
+  width: 100%;
+}
+
+.body-container {
+  position: relative;
+}
+
+.overlay {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-color: rgba(24, 83, 122, 0.6);
+  opacity: 0;
+  transition: height linear 0.4s, opacity linear 0.2s;
+}
+
+.item-container:hover .overlay {
+  opacity: 1;
+  height: 150px;
+}
+
+.event-info {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+.title {
+  color: #18537a;
+  font-size: 1.5em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 12px;
+}
+
+.info {
+  letter-spacing: 0.5px;
+  margin-bottom: 17px;
+}
+
+.separator {
+  width: 20%;
+  height: 6px;
+  background-color: #17537a;
+  margin-bottom: 16px;
+}
+
+.additional-info {
+  border-top: 1px solid #bbb;
+  margin-top: 12px;
+  padding: 28px;
+  padding-bottom: 0;
+}
+
+.additional-info .info {
+  font-size: 0.9em;
+  margin-bottom: 20px;
+  text-align: center;
+  display: block;
+}
+
+.info i {
+  color: #18537a;
+  font-size: 1.1em;
+  margin-right: 4px;
+}
+
+.action {
+  color: #fff;
+  border: 3px solid #fff;
+  background-color: transparent;
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  outline: none;
+  cursor: pointer;
+  padding: 12px;
+  text-transform: uppercase;
+  font-size: 1.3em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  transition: background-color 0.4s, top 0.4s;
+  font-family: "Montserrat", sans-serif;
+}
+
+.item-container:hover .action {
+  top: 50px;
+}
+
+.action:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+
+
+
+
+#page3{
+  background-image: linear-gradient(to right, #032B44, #000000);
+  width: 100%;
+  height: 100vh;
+  margin-top: 25px;
+
+}
+
+
+.page3_1 {
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 70px;
+
+}
+
+h1 {
+  color: #fff;
+  background-image: linear-gradient(to right, #032B44, #000000);
+  font-size: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 0 7px;
+  padding-top: 10px;
+}
+@media only screen and (max-width: 992px) {
+  h1 {
+    font-size: 40px;
+    padding-top: 3px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 30px;
+    padding-top: 2px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+    padding-top: 1px;
+  }
+}
+
+
+  
+.container2 {
+    height: 350px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0px; 
+}
+
+.card {
+    width: 100px;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 2rem;
+    margin: 10px;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 0 0 10px #fff;
+    background-color: #fff;
+    position: relative;
+    
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit; 
+    background-size: cover;
+    filter: blur(4px);  
+}
+
+
+
+.card > .row {
+    color: #fff;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center; 
+    position: relative; 
+    z-index: 1;/* Ensure text is above the pseudo-element */
+}
+
+
+
+.card > .row > .description {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: visible;
+    height: 80px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(30px);
+    transition-delay: .3s;
+    transition: all .3s ease;
+    
+
+}
+@media only screen and (max-width: 1200px) {
+  .container2 {
+    height: 300px;
+  }
+  .card {
+    width: calc(33% - 20px);
+  }
+  .card > .row > .description {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .container2 {
+    height: 250px;
+  }
+  .card {
+    width: calc(50% - 20px);
+  }
+  .card > .row > .description {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .container2 {
+    height: 200px;
+  }
+  .card {
+    width: calc(100% - 20px);
+  }
+  .card > .row > .description {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .container2 {
+    height: 150px;
+  }
+  .card {
+    width: calc(100% - 20px);
+  }
+  .card > .row > .description {
+    width: 90%;
+  }
+}
+
+
+.description{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;   
+    filter: blur(0px);
+}
+
+.description h3 {
+  font-size: 30px;
+    text-shadow: 0 0 10px;
+    text-transform: uppercase;
+    
+}
+
+.description p {
+  font-size: 20px;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.description ul {
+    padding-top: 20px;
+}
+
+.description ul li{
+  padding-top: 5px;
+font-weight: bold;
+font-size: 20px;
+}
+
+.description button{
+  border-radius: 10px;
+  margin-top: 25px;
+  padding:4px;
+  border: none;
+  font-size: 20px;
+  font-weight: bolder;
+  box-shadow: 0 0 10px;
+}
+
+input {
+    display: none;
+}
+
+input:checked + label {
+    width: 600px;
+}
+
+input:checked + label .description {
+    opacity: 1 !important;
+    transform: translateY(-150%) !important;
+    visibility: visible !important;
+}
+
+.card[for="c1"] {
+  background-image: url('Rural Education.webp');
+h3{
+  color: black;
+}
+p,ul{
+  color: #79029b ;
+}
+}
+.card[for="c2"] {
+  background-image: url('Health.jpg');
+  h3{
+    color: #4C0424;
+  }
+  p,ul{
+    color:#FFC107;
+  }
+}
+.card[for="c3"] {
+  background-image: url('Planting Trees.jpg');
+  h3{
+    color: black;
+  }
+  p,ul{
+    color: #79029b ;
+  }
+  
+}
+.card[for="c4"] {
+  background-image: url('Charity.jpg');
+  h3{
+    color: #4C0424;
+  }
+  p,ul{
+    color:#FFC107;
+  }
+
+}
+@media only screen and (max-width: 992px) {
+  .card {
+    width: 150px;
+    margin: 0 5px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    width: 120px;
+    margin: 0 3px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .card {
+    width: 100px;
+    margin: 0 2px;
+  }
+}
+
+
+
+
+
+
+
+
+
+        
+         
+        #page4{
+            font-family: 'Poppins', sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .container3 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+          #h2 h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #333;
+            font-weight: 600;
+            font-size: 50px;
+        }
+
+        .reviews-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .review-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: calc(25% - 20px); 
+            transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.5s ease;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes glitter {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+        .review-card:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .review-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 0, 150, 0.2) 25%, rgba(0, 255, 255, 0.2) 50%, rgba(255, 255, 0, 0.2) 75%);
+            background-size: 200% 200%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            animation: glitter 1.5s linear infinite;
+        }
+
+        .review-card:hover::before {
+            opacity: 1;
+        }
+
+        .review-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .review-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .review-card .content {
+            padding: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .review-card:hover .content {
+            background: #f9f9f9;
+        }
+
+        .review-card .content h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .review-card:hover .content h3 {
+            color: #007bff;
+        }
+
+        .review-card .content p {
+            color: #666;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+
+        .review-card .content .rating {
+            display: flex;
+            align-items: center;
+        }
+
+        .review-card .content .rating span {
+            font-size: 1.2em;
+            color: #ffbb00;
+            margin-right: 5px;
+        }
+
+        @media (max-width: 1200px) {
+            .review-card {
+                width: calc(33.33% - 20px); 
+            }
+        }
+
+        @media (max-width: 768px) {
+            .review-card {
+                width: calc(50% - 20px); 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .review-card {
+                width: 100%; 
+            }
+        }
