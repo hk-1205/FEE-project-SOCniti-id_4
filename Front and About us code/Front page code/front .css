@@ -1,0 +1,56 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden; /* Prevents scrollbars during animation */
+}
+
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+ transition: transform 2s ease-in-out;
+}
+
+h1 {
+  color: #484848;
+  font-size: 89px;
+  font-weight: 700;
+  font-family: monospace;
+  letter-spacing: 3px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1; /* Ensures h1 stays above other content during animation */
+}
+
+h1 span {
+  transition: 0.5s linear;
+}
+
+h1:hover span:nth-child(1) {
+  margin-right: 5px;
+}
+
+h1:hover span:nth-child(2) {
+  margin-left: 30px;
+}
+
+h1:hover span {
+  color: teal;
+  text-shadow: 0 0 10px teal,
+               0 0 20px teal, 
+               0 0 40px teal;
+}
+
+.slide-up {
+  transform: translateY(-100%);
+
+}
+
+  
