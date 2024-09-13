@@ -1,0 +1,155 @@
+h4{
+    font-family: 'lora','serif';
+    font-size: 60px;
+    color:#3abd6a;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    text-align: center;
+    transition: font-size 0.3s ease-in-out;
+
+    
+}
+h4:hover{
+    color:#4caf50;
+    font-size: 65px;
+}
+.outerdiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(2, 6, 71);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.innerdiv {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 20px;
+    width: 100%;
+}
+
+.eachdiv {
+    background-color:  #E0F7FA;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Start invisible */
+    transform: translateY(20px); /* Start with a small vertical offset */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.8s forwards; /* Animation to make it appear */
+}
+
+/* Hover effect */
+.eachdiv:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Keyframe animation for the fade and slide-in effect */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply the animation delay to each div */
+.div1 {
+    animation-delay: 0.2s;
+}
+
+.div2 {
+    animation-delay: 0.4s;
+}
+
+.div3 {
+    animation-delay: 0.6s;
+}
+
+.div4 {
+    animation-delay: 0.8s;
+}
+
+.div5 {
+    animation-delay: 1s;
+}
+
+.userdetails {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.imgbox {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+.imgbox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detbox .name {
+    font-weight: 700;
+    font-size: 1.2em;
+    margin: 0;
+    color: #333;
+}
+
+.detbox .designation {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 5px;
+}
+
+.review h4 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.review p {
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: #444;
+}
+
+.dark .name,
+.dark .designation,
+.dark h4,
+.dark p {
+    color: #222;
+}
+
+.attribution {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.8em;
+    color: #888;
+}
+
+.attribution a {
+    color: #555;
+    text-decoration: none;
+    border-bottom: 1px dashed #555;
+}
+
+.attribution a:hover {
+    color: #222;
+    border-bottom: 1px solid #222;
+}
